@@ -6,6 +6,7 @@ import family_tree.human.Human;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class FamilyTree {
 
     private List<Human> humanList;
