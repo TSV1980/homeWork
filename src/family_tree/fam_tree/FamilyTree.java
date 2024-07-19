@@ -2,13 +2,18 @@ package family_tree.fam_tree;
 
 import family_tree.human.Gender;
 import family_tree.human.Human;
+import family_tree.human.comparators.HumanCompareByAge;
+import family_tree.human.comparators.HumanCompareByBirthday;
+import family_tree.human.comparators.HumanCompareByName;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 
-public class FamilyTree implements Serializable  {
+public class FamilyTree implements Serializable , Iterable<Human>  {
 
     private List<Human> humanList;
 
@@ -77,8 +82,32 @@ public class FamilyTree implements Serializable  {
         StringBuilder sb = new StringBuilder();
         for (Human human : humanList){
             sb.append(human);
+            sb.append("\r\n");
         }
         return sb.toString();
     }
+
+    public void sortByAge(){
+        humanList.sort(new HumanCompareByAge());
+    }
+
+    public void sortByName(){
+        humanList.sort(new HumanCompareByName());
+    }
+
+    public void sortByBirthday(){
+        humanList.sort(new HumanCompareByBirthday());
+    }
+
+    /**
+     * Returns an iterator over elements of type {@code T}.
+     *
+     * @return an Iterator.
+     */
+    @Override
+    public Iterator<Human> iterator() {
+        return new FamilyIterator(humanList);
+    }
+
 }
 
