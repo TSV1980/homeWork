@@ -17,6 +17,7 @@
 import family_tree.fam_tree.FamilyTree;
 import family_tree.human.Gender;
 import family_tree.human.Human;
+import family_tree.writer.FileHandler;
 
 import java.time.LocalDate;
 
@@ -59,6 +60,7 @@ public class Main {
 
         System.out.println(familyTree);
 
+        /*
         System.out.println("Бабушки у " + d1.getName());
         System.out.println(familyTree.findGrandMather(d1));
         System.out.println("Дедушки у " + d1.getName());
@@ -68,6 +70,15 @@ public class Main {
         System.out.println(familyTree.findGrandMather(d2));
         System.out.println("Дедушки у " + d2.getName());
         System.out.println(familyTree.findGrandFather(d2));
+
+        */
+
+        FileHandler fWriteRead = new FileHandler();
+        fWriteRead.save(familyTree);
+
+        FamilyTree read_familyTree = (FamilyTree)fWriteRead.read();
+        System.out.println(read_familyTree);
+
 
     }
 }
