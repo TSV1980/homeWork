@@ -73,11 +73,25 @@ public class Main {
 
         */
 
+        System.out.println("Save And Restore");
         FileHandler fWriteRead = new FileHandler();
         fWriteRead.save(familyTree);
 
         FamilyTree read_familyTree = (FamilyTree)fWriteRead.read();
         System.out.println(read_familyTree);
+
+
+        System.out.println("Выводим список через FOR EACH");
+        for (Human hm : familyTree){
+            System.out.println(hm);
+        }
+
+        System.out.println("Сортировка");
+        familyTree.sortByName();
+        System.out.println("Вывод стандартным способом");
+        System.out.println(familyTree);
+        familyTree.sortByBirthday();
+        System.out.println(familyTree);
 
 
     }

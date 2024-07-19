@@ -211,8 +211,8 @@ public class Human implements Serializable {
     @Override
     public String toString() {
         String str = "id: "+ id + " Имя:" + name +
-                "   Пол: " + getGenderInfo() + "  " + getBirthdayInfo() + "  " + getMotherInfo() + "  " + getFatherInfo() + "   " + getChildrenInfo() +
-                getSpouseInfo() + "\r\n";
+                "   Пол: " + getGenderInfo() + "Возраст: " + getAge() + "  " + getBirthdayInfo() + "  " + getMotherInfo() + "  " + getFatherInfo() + "   " + getChildrenInfo() +
+                getSpouseInfo();
 
         return  str;
     }
@@ -282,4 +282,5 @@ public class Human implements Serializable {
         return ((Human) obj).getId() == getId();
     }
 }
+
 
